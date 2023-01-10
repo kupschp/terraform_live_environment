@@ -1,5 +1,5 @@
 module "database_instance" {
-  source = "../../../modules/data-stores/mysql"
+  source = "github.com/kupschp/terraform_modules//data-stores/mysql?ref=v0.0.1"
 
   #will store usrname and password in secret management in next chapter of the book
   db_username = "stage_usrptgtest"
