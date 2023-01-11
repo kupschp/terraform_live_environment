@@ -14,3 +14,7 @@ output "short_upper_names" {
 output "using_map_example_loop" {
   value = [for name, role in var.using_map_example : "${name} is ${role}"]
 }
+
+output "uppercase_roles" {
+  value = {for name, role in var.using_map_example: upper(name) => upper(role)}
+}
