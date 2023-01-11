@@ -10,3 +10,7 @@ output "upper_user_name" {
 output "short_upper_names" {
   value = [for user_name in var.user_names : upper(user_name) if length(user_name) < 5]
 }
+
+output "using_map_example_loop" {
+  value = [for name, role in var.using_map_example : "${name} is ${role}"]
+}
