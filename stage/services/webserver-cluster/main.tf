@@ -1,5 +1,5 @@
 module "webserver_cluster" {
-  source = "github.com/kupschp/terraform_modules//services/webserver-cluster?ref=v0.0.4"
+  source = "github.com/kupschp/terraform_modules//services/webserver-cluster?ref=v0.0.6"
 
   cluster_name = "stage-ptg-webservers"
   db_remote_state_bucket = "ptg-tfstate"
