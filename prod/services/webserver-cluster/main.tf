@@ -8,10 +8,12 @@ module "webserver_cluster" {
   instance_type = "t2.medium"
   cluster_min_size = 3
   cluster_max_size = 5
+  enable_autoscaling = true
 }
 
 #scheduled scale in and out of prod cluter: more traffic at 9am: 4 vm instances,less traffic at 5pm:2 vm instances
 resource "aws_autoscaling_schedule" "scale_out_at_high_peak" {
+  count = var.enable_autoscaling ? 1 : 0
   scheduled_action_name = "scale-out-at-high-peak"
   min_size = 2
   max_size = 4
@@ -22,6 +24,7 @@ resource "aws_autoscaling_schedule" "scale_out_at_high_peak" {
 }
 
 resource "aws_autoscaling_schedule" "scale_in_at_low_peak" {
+  count = var.enable_autoscaling ? 1 : 0
   scheduled_action_name = "scale-in-at-low-peak"
   min_size = 2
   max_size = 4

@@ -13,3 +13,8 @@ variable "using_map_example" {
     morpheus = "mentor"
   }
 }
+
+variable "give_neo_fullaccess" {
+  description = "neo fullaccess state"
+  type = bool
+}

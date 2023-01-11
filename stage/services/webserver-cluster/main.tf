@@ -13,4 +13,6 @@ module "webserver_cluster" {
     Owner = "Phil"
     ManagedBy = "Terraform"
   }
+
+  enable_autoscaling = false
 }

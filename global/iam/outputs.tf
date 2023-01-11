@@ -22,3 +22,11 @@ output "uppercase_roles" {
 output "for_directive" {
   value = "%{for index, user_name in var.user_names} ${index} ${user_name} %{endfor}"
 }
+
+output "neo_cloudwatch_policy_arn" {
+  value = (
+    var.give_neo_fullaccess
+    ? aws_iam_user_policy_attachment.neo_cloudwatch_fullaccess[0].policy_arn
+    : aws_iam_user_policy_attachment.neo_cloudwatch_readonly[0].policy_arn
+  )
+}
