@@ -18,3 +18,7 @@ output "using_map_example_loop" {
 output "uppercase_roles" {
   value = {for name, role in var.using_map_example: upper(name) => upper(role)}
 }
+
+output "for_directive" {
+  value = "%{for user_name in var.user_names} ${user_name} %{endfor}"
+}
