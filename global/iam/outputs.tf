@@ -20,5 +20,5 @@ output "uppercase_roles" {
 }
 
 output "for_directive" {
-  value = "%{for user_name in var.user_names} ${user_name} %{endfor}"
+  value = "%{for index, user_name in var.user_names} ${index} ${user_name} %{endfor}"
 }
