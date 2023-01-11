@@ -9,6 +9,8 @@ module "webserver_cluster" {
   cluster_min_size = 2
   cluster_max_size = 4
 
+  return_message = "Yo phil!!"
+
   custom_tags = {
     Owner = "Phil"
     ManagedBy = "Terraform"
