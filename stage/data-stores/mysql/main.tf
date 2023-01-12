@@ -1,9 +1,10 @@
 module "database_instance" {
   source = "github.com/kupschp/terraform_modules//data-stores/mysql?ref=v0.0.1"
 
-  #will store usrname and password in secret management in next chapter of the book
-  db_username = "stage_usrptgtest"
-  db_password = "stage_pwdptgtest"
+  #use stored creds in aws secret manager
+  db_username = local.db_creds.username
+  db_password = local.db_creds.password
+  
   db_instance_type = "db.t2.micro"
   identifier_prefix = "stage-ptg"
   db_name = "stage_ptg"
